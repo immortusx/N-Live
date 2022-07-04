@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Technology{% endblock title %}
+
+{% block body %}
+<div class="container-fluid">
+  <div class="container-fluid text-center">
+    <h1 class="text-light bg-dark my-1">LATEST NEWS</h1>
+  </div>
+    <div class="card mb-3">
+      {% for value in technologydata.data %}
+      <div class="row g-0 my-2">
+        <div class="col-md-4">
+          <img src="{{ value.imageUrl }}" class="img-fluid rounded-start rounded" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ value.title }}</h5>
+            <p class="card-text">{{ value.content }}</p>
+            <a class="bg-light" href="{{ value.readMoreUrl }}">Read More</a>
+            <p class="card-text"><small class="text-muted">{{ value.date }}</small></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+{% endblock body %}
